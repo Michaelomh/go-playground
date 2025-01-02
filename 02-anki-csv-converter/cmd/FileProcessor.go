@@ -5,18 +5,22 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/charmbracelet/huh"
 )
 
-// FormData holds the user input data from the form
+const (
+	DefaultDirectory  = "/Users/michaelomh/Downloads"
+	DefaultOutputFile = "anki-ccc.txt"
+)
+
 type FormData struct {
 	directory  string
 	file       string
 	outputFile string
 }
 
-// FileProcessor handles file processing operations
 type FileProcessor struct {
 	formData FormData
 }
@@ -25,9 +29,9 @@ func NewFileProcessor() *FileProcessor {
 	return &FileProcessor{}
 }
 
-// getTextFiles returns all .txt files in the given directory
-func (fp *FileProcessor) GetTextFiles(dirPath string) ([]string, error) {
-	files, err := os.ReadDir(dirPath)
+// getTxtFilesInDir returns all .txt files in the given directory
+func (fp *FileProcessor) getTxtFilesInDir(dir string) ([]string, error) {
+	files, err := os.ReadDir(dir)
 	if err != nil {
 		return nil, fmt.Errorf("error reading directory: %w", err)
 	}
@@ -41,7 +45,8 @@ func (fp *FileProcessor) GetTextFiles(dirPath string) ([]string, error) {
 	return txtFiles, nil
 }
 
-// createForm builds and returns the form UI
+// createForm builds and returns the form TUI
+// users would populate the data accordingly to the TUI
 func (fp *FileProcessor) CreateForm() *huh.Form {
 	return huh.NewForm(
 		huh.NewGroup(
@@ -55,8 +60,8 @@ func (fp *FileProcessor) CreateForm() *huh.Form {
 			huh.NewSelect[string]().
 				Title("What is the file name?").
 				OptionsFunc(func() []huh.Option[string] {
-					directory := GetDefaultDirectory(fp.formData.directory)
-					files, err := fp.GetTextFiles(directory)
+					directory := fp.GetDefaultDirectory(fp.formData.directory)
+					files, err := fp.getTxtFilesInDir(directory)
 					if err != nil {
 						log.Fatalf("Error getting text files: %v", err)
 						return nil
@@ -75,10 +80,10 @@ func (fp *FileProcessor) CreateForm() *huh.Form {
 	)
 }
 
-// processFiles handles the file conversion process
+// ProcessFiles handles the file conversion process
 func (fp *FileProcessor) ProcessFiles() error {
-	directory := GetDefaultDirectory(fp.formData.directory)
-	outputFile := GetDefaultOutputFile(fp.formData.outputFile)
+	directory := fp.GetDefaultDirectory(fp.formData.directory)
+	outputFile := fp.GetDefaultOutputFile(fp.formData.outputFile)
 
 	inputPath := filepath.Join(directory, fp.formData.file)
 	outputPath := filepath.Join(directory, outputFile)
@@ -95,4 +100,18 @@ func (fp *FileProcessor) ProcessFiles() error {
 
 	fmt.Println("Writing completed.🥳")
 	return nil
+}
+
+func (fp *FileProcessor) GetDefaultDirectory(d string) string {
+	if strings.TrimSpace(d) == "" {
+		d = DefaultDirectory
+	}
+	return d
+}
+
+func (fp *FileProcessor) GetDefaultOutputFile(d string) string {
+	if strings.TrimSpace(d) == "" {
+		d = DefaultOutputFile
+	}
+	return d
 }

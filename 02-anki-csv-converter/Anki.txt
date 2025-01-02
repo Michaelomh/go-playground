@@ -2,7 +2,7 @@
 #html:true
 #tags column:3
 挑战	challenge<br><br>Tiǎozhàn	
-点赞	like (social media)<br>Diǎn zàn<br><br>点 - click<br>赞 - praise	
+点赞	like (social media)<br>Diǎn zàn
 代替	Replace / Substitute<br>Dàitì	
 商场	Shopping Mall<br>Shāngchǎng	
 口音	accent<br>Kǒuyīn	
@@ -13,7 +13,7 @@
 终于	at last / finally<br>Zhōngyú	
 化妆	put on makeup<br>Huàzhuāng	
 吃惊	Shocked / Startled<br>Chījīng	
-一切顺利	wishing&nbsp;all the best<br>Yīqiè shùnlì	
+一切顺利	wishing all the best<br>Yīqiè shùnlì	
 技术	Technology<br>Jìshù	
 懒	lazy<br>Lǎn	
 戴上	put on (usually on the head)<br>Dài shàng	

@@ -7,12 +7,6 @@ import (
 	"strings"
 )
 
-const (
-	ChineseColumn = 0
-	EnglishColumn = 1
-	PinyinColumn  = 2
-)
-
 // ReadTextFile reads all records from the .txt file
 func ReadTextFile(file string) ([][]string, error) {
 	records := [][]string{}
@@ -31,11 +25,6 @@ func ReadTextFile(file string) ([][]string, error) {
 		content = strings.ReplaceAll(content, "<br>", "\t")
 		contentArr := strings.Split(content, "\t")
 
-		// fmt.Println(contentArr)
-		// fmt.Println(contentArr[0]) // should be all chinese
-		// fmt.Println(contentArr[1]) // should be all english
-		// fmt.Println(contentArr[2]) // should be all pinyin
-
 		if len(contentArr) > 3 {
 			contentArr[2] = strings.Join(contentArr[2:], "")
 		}
@@ -48,7 +37,6 @@ func ReadTextFile(file string) ([][]string, error) {
 
 // WriteCSV writes records to the CSV file atomically
 func WriteCSV(records [][]string, filename string) error {
-	// Create a temporary file in the same directory
 	f, err := os.Create(filename)
 	if err != nil {
 		return fmt.Errorf("unable to create temporary file: %w", err)
@@ -64,8 +52,6 @@ func WriteCSV(records [][]string, filename string) error {
 		f.Close()
 		return fmt.Errorf("error flushing records: %w", err)
 	}
-
-	fmt.Println("output fileName", filename)
 
 	return nil
 }
