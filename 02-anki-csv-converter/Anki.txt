@@ -1,0 +1,25 @@
+#separator:tab
+#html:true
+#tags column:3
+挑战	challenge<br><br>Tiǎozhàn	
+点赞	like (social media)<br>Diǎn zàn<br><br>点 - click<br>赞 - praise	
+代替	Replace / Substitute<br>Dàitì	
+商场	Shopping Mall<br>Shāngchǎng	
+口音	accent<br>Kǒuyīn	
+电子邮件	email<br>Diànzǐ yóujiàn<br>	
+注意	Take note of<br>Zhùyì	
+联络 / 联系	Contact<br>Liánluò / Liánxì	
+主人公	Protagonist<br>Zhǔréngōng	
+终于	at last / finally<br>Zhōngyú	
+化妆	put on makeup<br>Huàzhuāng	
+吃惊	Shocked / Startled<br>Chījīng	
+一切顺利	wishing&nbsp;all the best<br>Yīqiè shùnlì	
+技术	Technology<br>Jìshù	
+懒	lazy<br>Lǎn	
+戴上	put on (usually on the head)<br>Dài shàng	
+澳大利亚	Australia<br>Àodàlìyǎ	
+缺点	disadvantage / shortcomings<br>Quēdiǎn	
+危险	danger<br>Wéixiǎn	
+控制	control<br>Kòngzhì	
+熬	simmer (soup) / endure<br>Áo	
+气氛	vibe / atmosphere<br>Qìfēn	
